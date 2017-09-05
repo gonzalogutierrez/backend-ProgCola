@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Paypal Nodejs Integration : www.codershood.info</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">    
+    <link rel="stylesheet" href="css/style.css">    
+</head>
+<body>
+
+    <div class="header">
+        <div class="col-md-4">
+            Hello <%= response.userData.name %>
+        </div>
+        <div class="col-md-8">
+            <ul class="navigator">
+                <li>
+                    <a href="/home" title="Home">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout" title="Logout">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row PaymentInfoCard">
+
+            <div class="col-md-12">
+                <div class="alert <% if(response.error) { %> alert-danger <% } else{ %> alert-success <% } %>">
+                    <strong> <%= response.message %></strong>
+                </div>       
+            </div>
+
+        </div>     
+    </div>
+</body>
+</html>

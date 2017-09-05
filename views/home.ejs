@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Programacion Colaborativa</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">    
+    <link rel="stylesheet" href="css/style.css">    
+</head>
+<body class="container">
+
+    <div class="row">
+        <div class="header">
+            <div class="col-md-4">
+                Hola <%= response.userData.name %>
+            </div>
+            <div class="col-md-8">
+                <ul class="navigator">
+                    <li>
+                        <a href="/home" title="Home">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout" title="Logout">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row productContainer">
+
+            <% response.products.forEach(function(products) { %>
+                
+                <div class="col-md-12 product">
+                    <div class="col-md-4">
+                        <img height="200" width="150" src="<%= products.image %>">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="col-md-8">
+                            <h3 class="productName"><%= products.name %></h3>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="productPrice"><%= products.price %> USD</h3> 
+                        </div>
+                        <div class="col-md-12">
+                            <p class="productDescription" ><%= products.description %></p>
+                            <form class="form-horizontal" role="form" id="paypalForm" method="post" action="/paynow">
+                                <input type="hidden" value="<%= products.price %>" name="price"/>
+                                <input type="hidden" value="<%= products._id %>" name="productId"/>
+                                <input type="hidden" value="<%= products.name %>" name="productName"/>
+                                <button class="btn submitBtn">Comprar</button>
+                            </form>
+                        </div>
+                    </div>                   
+                </div>
+                  
+            <% }); %>
+        </div>
+</body>
+</html>
