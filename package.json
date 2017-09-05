@@ -13,6 +13,6 @@
     "express-session": "^1.14.0",
     "mongodb": "^2.1.18",
     "paypal-rest-sdk": "^1.7.1",
-	"cors": "^2.8.4",
-  }
+	"cors": "^2.8.4"
+	}
 }
